@@ -188,7 +188,6 @@ class Cropper extends React.Component<CropperProps, State> {
     this.setInitialCrop()
 
     if (this.props.onMediaLoaded) {
-      console.log('calling on media loaded', this.imageRef, this.videoRef);
       this.props.onMediaLoaded(this.mediaSize, this.imageRef || this.videoRef)
     }
   }
