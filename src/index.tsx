@@ -37,7 +37,7 @@ export type CropperProps = {
   onCropSizeChange?: (cropSize: Size) => void
   onInteractionStart?: () => void
   onInteractionEnd?: () => void
-  onMediaLoaded?: (mediaSize: MediaSize) => void
+  onMediaLoaded?: (mediaSize: MediaSize, mediaRef: HTMLImageElement | HTMLVideoElement | null) => void
   style: {
     containerStyle?: React.CSSProperties
     mediaStyle?: React.CSSProperties
@@ -188,7 +188,8 @@ class Cropper extends React.Component<CropperProps, State> {
     this.setInitialCrop()
 
     if (this.props.onMediaLoaded) {
-      this.props.onMediaLoaded(this.mediaSize)
+      console.log('calling on media loaded', this.imageRef, this.videoRef);
+      this.props.onMediaLoaded(this.mediaSize, this.imageRef || this.videoRef)
     }
   }
 
